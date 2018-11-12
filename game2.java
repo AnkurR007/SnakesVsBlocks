@@ -165,21 +165,6 @@ public class game2 extends Application {
 
         //Snake
 
-        AnimationTimer timer = new AnimationTimer() {
-            double time;
-
-            @Override
-            public void handle(long now) {
-                time=time+0.05;
-                if (time<=15 ) {
-                    game2 play_game = new game2();
-                    play_game.update();
-
-                }
-
-            }
-        };
-        timer.start();
 
         Rectangle r = new Rectangle();
         r.setLayoutX(300);
@@ -195,6 +180,38 @@ public class game2 extends Application {
 
 
         group.getChildren().addAll(pause_button,label_100, label_200, label_300,label_400,label_500);
+
+        AnimationTimer timer = new AnimationTimer() {
+            double time;
+
+            @Override
+            public void handle(long now) {
+                time=time+0.05;
+                if (time<=15 ) {
+                    game2 play_game = new game2();
+                    //play_game.update();
+                    i=i+2;
+                    label_100.setTranslateX(0);
+                    label_100.setTranslateY(i);
+
+                    label_200.setTranslateX(0);
+                    label_200.setTranslateY(i);
+
+                    label_300.setTranslateX(0);
+                    label_300.setTranslateY(i);
+
+                    label_400.setTranslateX(0);
+                    label_400.setTranslateY(i);
+
+                    label_500.setTranslateX(0);
+                    label_500.setTranslateY(i);
+                }
+
+            }
+        };
+        timer.start();
+
+
         the_Stage.setScene(new Scene(group,500,700,Color.BLACK));
 
 
@@ -203,7 +220,7 @@ public class game2 extends Application {
 
 
     public static void snakes(int n) {
-         
+
 
 
     }
@@ -275,8 +292,10 @@ public class game2 extends Application {
         return label_5;
     }
 
-
+    static int flag =0;
     public static void update() {
+
+
 
         i=i+2;
         label_1.setTranslateX(0);
